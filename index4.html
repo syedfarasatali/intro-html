@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo">Calculate</p>
+<form id="basicForm" onsubmit='submitForm();' >
+  <input type="number" id="numOne" placeholder="Enter # 1" value="" onfocus="fieldFocus(this);" onblur="fieldBlur(this);"><br>
+  <select name="operator" id="operator" placeholder="Select" value="" onfocus="fieldFocus(this);" onblur="fieldBlur(this);">
+
+      <option value="*">*</option>
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="/">/</option>
+      <option value="%">%</option>
+    </select>
+
+
+  <br>
+  <input type="number" id="numTwo" placeholder="Enter # 2" value="" onfocus="fieldFocus(this);" onblur="fieldBlur(this);" onchange="fieldChange(this);" ><br>
+  <button type="submit" >Submit</button>
+</form>
+
+
+
+<script>
+  document.querySelectorAll("operator").setAttribute("disabled", "enabled");
+
+function fieldChange(fChange){
+console.log("this")
+  document.querySelectorAll("numTwo").setAttribute("disabled", "enabled");
+  document.querySelectorAll("operator").setAttribute("disabled", "enabled");
+}
+
+
+function fieldFocus(fFocus){
+  fFocus.style.backgroundColor = "#eee";
+  fFocus.style.border = "none";
+}
+function fieldBlur(fBlur){
+  fBlur.style.backgroundColor = "";
+  fBlur.style.border = "solid 1px #000";
+}
+
+function submitForm(){
+    var numOne=document.getElementById("numOne").value;
+    var operator=document.getElementById("operator").value;
+    var numTwo=document.getElementById("numTwo").value;
+
+    if(operator=="+"){
+      var cal=parseInt(numOne) + parseInt(numTwo);
+
+    }
+    if(operator=="/"){
+      var cal=parseInt(numOne) / parseInt(numTwo);
+
+    }
+    if(operator=="*"){
+      var cal=parseInt(numOne) * parseInt(numTwo);
+
+    }
+    if(operator=="-"){
+      var cal=parseInt(numOne) - parseInt(numTwo);
+
+    }
+    if(operator=="%"){
+      var cal=parseInt(numOne) - parseInt(numTwo);
+
+    }
+
+
+    document.write(cal);
+  }
+
+
+</script>
+
+</body>
+</html>
