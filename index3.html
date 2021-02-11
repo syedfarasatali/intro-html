@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo">a</p>
+<form id="basicForm" onsubmit='submitForm();' >
+  <input type="input" id="english" placeholder="English #" value="" onfocus="fieldFocus(this);" onblur="fieldBlur(this);"><br>
+  <input type="input" id="math" placeholder="Math #" value="" onfocus="fieldFocus(this);" onblur="fieldBlur(this);"><br>
+  <input type="input" id="urdu" placeholder="Urdu #" value="" onfocus="fieldFocus(this);" onblur="fieldBlur(this);"><br>
+  <input type="input" id="islamiat" placeholder="Islamiat #" value="" onfocus="fieldFocus(this);" onblur="fieldBlur(this);"><br>
+  <input type="input" id="sindhi" placeholder="Sindhi #" value="" onfocus="fieldFocus(this);" onblur="fieldBlur(this);"><br>
+  <button type="submit" >Submit</button>
+</form>
+
+<button onmouseup='subjects(prompt("Marks obtained"));'>Click to Know Your Percentage</button>
+
+
+<script>
+
+
+
+
+function fieldFocus(fFocus){
+  fFocus.style.backgroundColor = "#eee";
+  fFocus.style.border = "none";
+}
+function fieldBlur(fBlur){
+  fBlur.style.backgroundColor = "";
+  fBlur.style.border = "solid 1px #000";
+
+}
+
+function submitForm(){
+
+    var english=document.getElementById("english").value;
+    var math=document.getElementById("math").value;
+    var urdu=document.getElementById("urdu").value;
+    var islamiat=document.getElementById("islamiat").value;
+    var sindhi=document.getElementById("sindhi").value;
+
+
+    var tmo=parseInt(english)+parseInt(math)+parseInt(urdu)+parseInt(islamiat)+parseInt(sindhi);
+    if(tmo="NaN"){
+      tmo=0;
+    }
+    document.write("Total Marks: 500 <br>");
+    document.write("Total Marks Obtain: " + tmo + "<br>");
+    var per = tmo*100/500;
+    document.write("Percetage:" + per.toFixed(2)+"%");
+
+
+    switch(true) {
+    case(per>100):
+    document.write("Enter Total Marks Obtain");
+    break;
+
+    case(per>=80 && per<=100):
+    document.write("<p style='color:green;'>A1 grade!</p>");
+    break;
+
+    case(per>=70 && per<=80):
+    document.write("<p style='color:blue;'>A grade!</p>");
+    break;
+
+    case(per>=60 && per<70):
+    document.write("<p style='color:yellow;'>B grade!</p>");
+    break;
+
+    case(per>=40 && per<60):
+    document.write("<p style='color:red;'>C grade!</p>");
+    break;
+
+    case(per<40):
+    document.write("<p style='color:red;'>Sorry Failed!</p>");
+    break;
+
+    default:
+    document.write("Enter Total Marks Obtain");
+}
+
+  /*
+    if(fname=="" || lname=="" || em==""){
+  document.write("<p style='color:red'>Please enter all required fields!<br></p>");
+  }
+  else {
+    document.write("<p style='color:green'>Thank you for feedback!<br></p>");
+    document.write(fname + "<br>");
+    document.write(lname + "<br>");
+    document.write(em + "<br>");
+  }
+  */
+}
+
+</script>
+
+</body>
+</html>
